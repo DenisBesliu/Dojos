@@ -81,4 +81,10 @@ public class RomanNumeralTest {
         assertEquals("MMMMMMCMXLVI", romanNumeral.translate(6946));
     }
 
+
+    @Test
+    public void _9949(){
+        assertEquals("MMMMMMMMMCMXLIX", romanNumeral.translate(9949));
+    }
+
 }

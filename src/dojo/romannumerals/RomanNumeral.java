@@ -47,19 +47,27 @@ public class RomanNumeral {
         String result = "";
         while (aNumber > 0) {
             for (int i = RomanBoundaries.values().length - 1; i >= 0; i--) {
-                RomanBoundaries boundary = RomanBoundaries.values()[i];
-                if (aNumber == (boundary.getValue() - boundary.getSpecialValue())) {
+                final RomanBoundaries boundary = RomanBoundaries.values()[i];
+                final int value = boundary.getValue();
+                final int specialValue = boundary.getSpecialValue();
+                final int specialDifference = value - specialValue;
+                if (isSpecialCase(aNumber, value, specialDifference)) {
                     result += boundary.getSpecialRepresentation();
-                    aNumber -= (boundary.getValue() - boundary.getSpecialValue());
+                    aNumber -= specialDifference;
                     break;
                 }else if (boundary.value <= aNumber) {
                     result += boundary.toString();
-                    aNumber -= boundary.getValue();
+                    aNumber -= value;
                     break;
                 }
             }
         }
 
         return result;
+    }
+
+
+    private boolean isSpecialCase(final int aNumber, final int aValue, final int aSpecialDifference) {
+        return aSpecialDifference == aNumber || ( aSpecialDifference < aNumber && aNumber < aValue);
     }
 }
