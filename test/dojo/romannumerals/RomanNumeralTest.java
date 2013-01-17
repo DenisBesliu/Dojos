@@ -1,6 +1,6 @@
 package dojo.romannumerals;
 
-import junit.framework.Assert;
+import static junit.framework.Assert.assertEquals;
 import org.junit.Test;
 
 /**
@@ -19,21 +19,66 @@ public class RomanNumeralTest {
 
     @Test
     public void one() {
-        Assert.assertEquals("I", romanNumeral.translate(1));
+        assertEquals("I", romanNumeral.translate(1));
     }
 
 
     @Test
-    public void two() {
-        Assert.assertEquals("II", romanNumeral.translate(2));
+    public void five() {
+        assertEquals("V", romanNumeral.translate(5));
     }
 
+
+    @Test
+    public void ten() {
+        assertEquals("X", romanNumeral.translate(10));
+    }
+
+
+    @Test
+    public void fifty() {
+        assertEquals("L", romanNumeral.translate(50));
+    }
+
+
+    @Test
+    public void oneHundred() {
+        assertEquals("C", romanNumeral.translate(100));
+    }
+
+
+    @Test
+    public void fiveHundred() {
+        assertEquals("D", romanNumeral.translate(500));
+    }
+
+
+    @Test
+    public void thousand() {
+        assertEquals("M", romanNumeral.translate(1000));
+    }
 
 
     @Test
     public void eleven() {
-        Assert.assertEquals("XI", romanNumeral.translate(11));
+        assertEquals("XI", romanNumeral.translate(11));
     }
 
+
+    @Test
+    public void fourteen() {
+        assertEquals("XIV", romanNumeral.translate(14));
+    }
+
+    @Test
+    public void _4233() {
+        assertEquals("MMMMCCXXXIII", romanNumeral.translate(4233));
+
+    }
+
+    @Test
+    public void _6946(){
+        assertEquals("MMMMMMCMXLVI", romanNumeral.translate(6946));
+    }
 
 }
