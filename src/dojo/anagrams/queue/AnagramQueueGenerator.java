@@ -23,25 +23,37 @@ public class AnagramQueueGenerator implements AnagramGenerator {
     }
 
 
-    public List<String> generate(String aValue) {
+    public List<String> generate(final String aValue) {
         if (aValue == null || aValue.isEmpty()) {
             return Collections.emptyList();
         }
-        final Queue<String> previousResult = new LinkedList<String>();
-        previousResult.offer(aValue.substring(aValue.length() - 1));
-        aValue = aValue.substring(0,aValue.length()-1);
+        final Queue<String> queue = new LinkedList<String>();
+        final Queue<String> charsToParse = getCharsToParse(aValue);
+        queue.offer(charsToParse.poll());
         int currentStep = 0;
-        while (!aValue.isEmpty()) {
+        while (!charsToParse.isEmpty()) {
             currentStep++;
-            final String newPrefix = aValue.substring(aValue.length() - 1);
-            aValue = aValue.substring(0, aValue.length()-1);
-            for(int i=0; i< factorial.calculate(currentStep); i++){
-                final String newSuffix = previousResult.poll();
-                for (int j = 0; j <= newSuffix.length(); j++) {
-                    previousResult.offer(newSuffix.substring(0, j) + newPrefix + newSuffix.substring(j));
-                }
+            enqueueNextLevel(queue, charsToParse.poll(), factorial.calculate(currentStep));
+        }
+        return new ArrayList<String>(queue);
+    }
+
+
+    private Queue<String> getCharsToParse(final String aValue) {
+        final Queue<String> charsToParse = new LinkedList<String>();
+        for (int i = aValue.length() - 1; i >= 0; i--) {
+            charsToParse.offer(String.valueOf(aValue.charAt(i)));
+        }
+        return charsToParse;
+    }
+
+
+    private void enqueueNextLevel(final Queue<String> aQueue, final String aCharacter, final long aLevelItems) {
+        for (int i = 0; i < aLevelItems; i++) {
+            final String characters = aQueue.poll();
+            for (int j = 0; j <= characters.length(); j++) {
+                aQueue.offer(characters.substring(0, j) + aCharacter + characters.substring(j));
             }
         }
-        return new ArrayList<String>(previousResult);
     }
 }
