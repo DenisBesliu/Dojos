@@ -1,0 +1,83 @@
+<project name="XCU - APS" default="runAllTest" basedir=".">
+
+    <target name="init" description="Initialising properties">
+        <echo>Initialising properities for application ${ant.project.name}...</echo>
+        <tstamp/>
+
+        <!-- Debug mode directories-->
+        <property name="src.dir" location="src"/>
+        <property name="test.dir" location="test"/>
+        <property name="test.logs.dir" location="test_logs"/>
+        <property name="build.dir" location="classes"/>
+        <property name="instbuild.dir" location="instclasses"/>
+        <property name="lib.dir" location="lib"/>
+
+        <!-- Deploy mode directories-->
+        <property name="deploy.dir" location="build"/>
+
+        <!-- Define the compilation classpath-->
+        <path id="compile.classpath">
+            <fileset dir="${lib.dir}">
+                <include name="**/*.jar"/>
+            </fileset>
+            <fileset dir="${ant.library.dir}">
+                <include name="*.jar"/>
+            </fileset>
+        </path>
+
+        <!-- Define the testing classpath-->
+        <path id="test.classpath">
+            <fileset dir="${lib.dir}">
+                <include name="**/*.jar"/>
+            </fileset>
+        </path>
+
+        <!-- Define the types of files that are runnable as tests -->
+        <patternset id="test.sources.pattern">
+            <include name="**/*Test.java"/>
+        </patternset>
+
+        <path id="run.classpath">
+            <pathelement location="${build.dir}"/>
+        </path>
+
+        <mkdir dir="${instbuild.dir}"/>
+        <mkdir dir="${test.logs.dir}"/>
+    </target>
+
+    <target name="clean" description="Cleaning workspace of object files" depends="init">
+        <echo>Cleaning workspace of object files for application ${ant.project.name}...</echo>
+        <delete dir="${build.dir}" verbose="true" failonerror="false"/>
+        <!--<delete dir="${reports.dir}"     verbose="true" failonerror="false"/>-->
+        <mkdir dir="${build.dir}"/>
+    </target>
+
+    <target name="compile-src-debug" description="Compiling source code for application in debug mode" depends="clean">
+        <echo>Compiling source code for application ${ant.project.name} in DEBUG mode...</echo>
+        <javac debug="on" srcdir="${src.dir}" destdir="${build.dir}" source="1.6">
+            <classpath refid="compile.classpath"/>
+        </javac>
+    </target>
+
+    <target name="compile-tests-debug" description="Compiling unit test source code for application in debug mode"
+            depends="compile-src-debug">
+        <echo>Compiling unit test source code for application ${ant.project.name}...</echo>
+        <javac debug="on" srcdir="${test.dir}" destdir="${build.dir}" source="1.6">
+            <classpath refid="test.classpath"/>
+        </javac>
+    </target>
+
+    <target name="run-tests" description="Executing unit tests" depends="init, compile-tests-debug">
+        <junit haltonfailure="true" dir="${basedir}" fork="true" forkmode="perBatch" clonevm="true">
+            <classpath location="${build.dir}"/>
+            <classpath refid="compile.classpath"/>
+            <formatter type="brief" usefile="false"/>
+            <batchtest todir="${test.logs.dir}">
+                <fileset dir="${test.dir}">
+                    <patternset refid="test.sources.pattern"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+</project>
