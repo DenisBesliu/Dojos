@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class NumberRendererTest {
 
-    NumberDigitizerFactory numberRender = new NumberDigitizerFactory();
+    final NumberDigitizerFactory numberRender = new NumberDigitizerFactory();
 
 
     @Test(expected = NonDigitizableNumberException.class)
@@ -30,8 +30,8 @@ public class NumberRendererTest {
 
     @Test
     public void convertNumberToDigitString_Zero() {
-        String [][] actualArray= numberRender.digitizerBy(0).toDigit();
-        String [][] expectedArray = {{".","_","."},
+        final String [][] actualArray= numberRender.digitizerBy(0).toDigit();
+        final String [][] expectedArray = {{".","_","."},
                                      {"|",".","|"},
                                      {"|","_","|"}};
         assertArrayEquals(expectedArray, actualArray);
@@ -39,8 +39,8 @@ public class NumberRendererTest {
 
     @Test
     public void convertNumberToDigitString_One() {
-        String [][] actualArray= numberRender.digitizerBy(1).toDigit();
-        String [][] expectedArray = {{".",".","."},
+        final String [][] actualArray= numberRender.digitizerBy(1).toDigit();
+        final String [][] expectedArray = {{".",".","."},
                                      {".",".","|"},
                                      {".",".","|"}};
         assertArrayEquals(expectedArray, actualArray);
@@ -48,8 +48,8 @@ public class NumberRendererTest {
 
     @Test
     public void convertNumberToDigitString_Two() {
-        String [][] actualArray= numberRender.digitizerBy(2).toDigit();
-        String [][] expectedArray = {{".","_","."},
+        final String [][] actualArray= numberRender.digitizerBy(2).toDigit();
+        final String [][] expectedArray = {{".","_","."},
                                      {".","_","|"},
                                      {"|","_","."}};
         assertArrayEquals(expectedArray, actualArray);
@@ -57,8 +57,8 @@ public class NumberRendererTest {
 
     @Test
     public void convertNumberToDigitString_Three() {
-        String [][] actualArray= numberRender.digitizerBy(3).toDigit();
-        String [][] expectedArray = {{".","_","."},
+        final String [][] actualArray= numberRender.digitizerBy(3).toDigit();
+        final String [][] expectedArray = {{".","_","."},
                                      {".","_","|"},
                                      {".","_","|"}};
         assertArrayEquals(expectedArray, actualArray);
@@ -66,8 +66,8 @@ public class NumberRendererTest {
 
     @Test
     public void convertNumberToDigitString_Four() {
-        String [][] actualArray= numberRender.digitizerBy(4).toDigit();
-        String [][] expectedArray = {{".",".","."},
+        final String [][] actualArray= numberRender.digitizerBy(4).toDigit();
+        final String [][] expectedArray = {{".",".","."},
                                      {"|","_","|"},
                                      {".",".","|"}};
         assertArrayEquals(expectedArray, actualArray);
@@ -75,8 +75,8 @@ public class NumberRendererTest {
 
     @Test
     public void convertNumberToDigitString_Five() {
-        String [][] actualArray= numberRender.digitizerBy(5).toDigit();
-        String [][] expectedArray = {{".","_","."},
+        final String [][] actualArray= numberRender.digitizerBy(5).toDigit();
+        final String [][] expectedArray = {{".","_","."},
                                      {"|","_","."},
                                      {".","_","|"}};
         assertArrayEquals(expectedArray, actualArray);
@@ -84,8 +84,8 @@ public class NumberRendererTest {
 
     @Test
     public void convertNumberToDigitString_Six() {
-        String [][] actualArray= numberRender.digitizerBy(6).toDigit();
-        String [][] expectedArray = {{".","_","."},
+        final String [][] actualArray= numberRender.digitizerBy(6).toDigit();
+        final String [][] expectedArray = {{".","_","."},
                                      {"|","_","."},
                                      {"|","_","|"}};
         assertArrayEquals(expectedArray, actualArray);
@@ -93,8 +93,8 @@ public class NumberRendererTest {
 
     @Test
     public void convertNumberToDigitString_Seven() {
-        String [][] actualArray= numberRender.digitizerBy(7).toDigit();
-        String [][] expectedArray = {{".","_","."},
+        final String [][] actualArray= numberRender.digitizerBy(7).toDigit();
+        final String [][] expectedArray = {{".","_","."},
                                      {".",".","|"},
                                      {".",".","|"}};
         assertArrayEquals(expectedArray, actualArray);
@@ -102,8 +102,8 @@ public class NumberRendererTest {
 
     @Test
     public void convertNumberToDigitString_Eight() {
-        String [][] actualArray= numberRender.digitizerBy(8).toDigit();
-        String [][] expectedArray = {{".","_","."},
+        final String [][] actualArray= numberRender.digitizerBy(8).toDigit();
+        final String [][] expectedArray = {{".","_","."},
                                      {"|","_","|"},
                                      {"|","_","|"}};
         assertArrayEquals(expectedArray, actualArray);
@@ -112,8 +112,8 @@ public class NumberRendererTest {
 
     @Test
     public void convertNumberToDigitString_Nine() {
-        String [][] actualArray= numberRender.digitizerBy(9).toDigit();
-        String [][] expectedArray = {{".","_","."},
+        final String [][] actualArray= numberRender.digitizerBy(9).toDigit();
+        final String [][] expectedArray = {{".","_","."},
                                      {"|","_","|"},
                                      {".",".","|"}};
         assertArrayEquals(expectedArray, actualArray);

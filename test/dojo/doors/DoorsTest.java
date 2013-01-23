@@ -57,7 +57,7 @@ public class DoorsTest {
 
     @Test
     public void hunderdDoors() {
-        for (Boolean val : doors.compute(100)) {
+        for (final Boolean val : doors.compute(100)) {
             System.out.println(val);
         }
         Assert.assertArrayEquals(new Boolean[] { true, false, false, true, false, false, false, false, true, false }, doors.compute(10));

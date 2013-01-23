@@ -17,7 +17,7 @@ import dojo.digital.digits.ZeroDigitizer;
  */
 public class NumberDigitizerFactory {
 
-    private NumberDigitizer[] digits = new NumberDigitizer[] { new ZeroDigitizer(), new OneDigitizer(), new TwoDigitizer(),
+    private final NumberDigitizer[] digits = new NumberDigitizer[] { new ZeroDigitizer(), new OneDigitizer(), new TwoDigitizer(),
                                                               new ThreeDigitizer(), new FourDigitizer(), new FiveDigitizer(),
                                                               new SixDigitizer(), new SevenDigitizer(), new EightDigitizer(),
                                                               new NineDigitizer() };

@@ -6,8 +6,8 @@ package dojo.digital;
  */
 public class DigitalNumberDecompozer {
 
-    private NumberDecomposer decomposer;
-    private NumberDigitizerFactory digitizerFactory;
+    private final NumberDecomposer decomposer;
+    private final NumberDigitizerFactory digitizerFactory;
 
 
     public DigitalNumberDecompozer() {

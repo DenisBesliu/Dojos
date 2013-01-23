@@ -15,9 +15,9 @@ public class RomanNumeral {
         D(500, 100, "CD"),
         M(1000, 100, "CM");
 
-        private int value;
-        private int specialValue;
-        private String specialRepresentation;
+        private final int value;
+        private final int specialValue;
+        private final String specialRepresentation;
 
 
         RomanBoundaries(final int aValue, final int aSpecialValue, final String aSpecialRepresentation) {

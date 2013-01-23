@@ -10,7 +10,7 @@ public class Doors {
 
     public Boolean[] compute(final int aNumbersOfDoors) {
         checkNumberOfDoors(aNumbersOfDoors);
-        Boolean[] doors = new Boolean[aNumbersOfDoors];
+        final Boolean[] doors = new Boolean[aNumbersOfDoors];
         Arrays.fill(doors, false);
         for (int i = 0; i < aNumbersOfDoors; i++) {
             for (int j = i; j < aNumbersOfDoors; j += i + 1) {

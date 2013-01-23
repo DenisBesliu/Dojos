@@ -19,18 +19,18 @@ public class DiamondPrinter {
         if (aCharacter != null) {
             result = completeResult(aCharacter, completeResultWithCharactersTill(aCharacter));
         }
-        return result.toArray(new String[0]);
+        return result.toArray(new String[result.size()]);
     }
 
 
     private List<String> completeResultWithCharactersTill(final String aCharacter) {
         List<String> result = new LinkedList<String>();
-        for (int i = 0; i < alphabet.length; i++) {
-            if (!alphabet[i].equals(aCharacter)) {
+        for (final String anAlphabet : alphabet) {
+            if (!anAlphabet.equals(aCharacter)) {
                 if (result.size() >= 1) {
-                    result = addCharacterTo(result, alphabet[i], 2);
+                    result = addCharacterTo(result, anAlphabet, 2);
                 } else {
-                    result = addCharacterTo(result, alphabet[i], 1);
+                    result = addCharacterTo(result, anAlphabet, 1);
                 }
             } else {
                 break;
@@ -45,8 +45,7 @@ public class DiamondPrinter {
             aResult = addCharacterTo(aResult, A, 1);
         } else {
             aResult = addCharacterTo(aResult, aCharacter, 2);
-            List<String> secondHalf = getSecondHalfOf(aResult);
-            aResult.addAll(secondHalf);
+            aResult.addAll(getSecondHalfOf(aResult));
         }
         return aResult;
     }
@@ -54,7 +53,7 @@ public class DiamondPrinter {
 
     private List<String> getSecondHalfOf(final List<String> aResult) {
         List<String> secondHalf = new LinkedList<String>();
-        int size = aResult.size();
+        final int size = aResult.size();
         for (int i = (size - 3); i >= 0; i--) {
             secondHalf = addCharacterTo(secondHalf, aResult.get(i), 1);
         }

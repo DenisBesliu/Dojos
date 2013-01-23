@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class RomanNumeralTest {
 
-    private RomanNumeral romanNumeral;
+    private final RomanNumeral romanNumeral;
 
 
     public RomanNumeralTest() {

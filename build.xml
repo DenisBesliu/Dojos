@@ -1,4 +1,4 @@
-<project name="XCU - APS" default="runAllTest" basedir=".">
+<project name="XCU - APS" default="run-tests" basedir=".">
 
     <target name="init" description="Initialising properties">
         <echo>Initialising properities for application ${ant.project.name}...</echo>

@@ -83,7 +83,7 @@ public class DiamondPrinterTest {
 
 
     private void printResult(final String[] aResultArray) {
-        int middle = aResultArray.length / 2;
+        final int middle = aResultArray.length / 2;
         printSpace(middle);
         printNewLine(aResultArray[0]);
 
