@@ -1,25 +1,31 @@
-package dojo.anagrams;
+package dojo.anagrams.recursive;
 
 import java.util.List;
 
+import dojo.anagrams.AnagramGenerator;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
  * @author: ajelimalai
  * @created: 22/01/13
  */
-public class AnagramGeneratorTest {
+public class AnagramRecursiveGeneratorTest {
 
-    private static AnagramGenerator anagramGenerator;
+    protected AnagramGenerator anagramGenerator;
 
 
-    @BeforeClass
-    public static void setUp() throws Exception {
-        anagramGenerator = new AnagramGenerator();
+    @Before
+    public void setUp() throws Exception {
+        initGenerator();
 
+    }
+
+
+    protected void initGenerator() {
+        anagramGenerator = new AnagramRecursiveGenerator();
     }
 
 
@@ -82,7 +88,7 @@ public class AnagramGeneratorTest {
 
 
     private void assertVarArgs(final List<String> aResult, final String[] aExpected) {
-        for (String value : aExpected) {
+        for (final String value : aExpected) {
             assertTrue(aResult.contains(value));
         }
     }
