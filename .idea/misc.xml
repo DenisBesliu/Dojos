@@ -3,14 +3,14 @@
   <component name="EclipseCodeFormatter">
     <option name="defaultSettings" value="true" />
     <option name="formatter" value="ECLIPSE" />
-    <option name="id" value="1357824415964" />
+    <option name="id" value="1358748532680" />
     <option name="name" value="default" />
-    <option name="optimizeImports" value="false" />
-    <option name="pathToConfigFileJava" value="$PROJECT_DIR$/../XCU/.settings/org.eclipse.jdt.core.prefs" />
+    <option name="pathToConfigFileJava" value="$PROJECT_DIR$/../../Eclipse-Indigo/EclipseWorkspace/_format_settings_/org.eclipse.jdt.core.prefs" />
   </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+  <component name="IdProvider" IDEtalkID="A1F864EFAB061B973542C0BFA65FDC35" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
